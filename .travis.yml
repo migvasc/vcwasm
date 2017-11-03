@@ -14,4 +14,4 @@ script: bundle exec rspec spec --color --format doc
 # safelist
 branches:
   only:
-- master
+  - master
