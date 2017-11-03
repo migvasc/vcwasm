@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @project.name %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @project.description %>
+</p>
+
+<p>
+  <strong>Wasm filename:</strong>
+  <%= @project.wasm_filename %>
+</p>
+
+<p>
+  <strong>Wasm content type:</strong>
+  <%= @project.wasm_content_type %>
+</p>
+
+<p>
+  <strong>Wasm file contents:</strong>
+  <%= @project.wasm_file_contents %>
+</p>
+
+<p>
+  <strong>Js filename:</strong>
+  <%= @project.js_filename %>
+</p>
+
+<p>
+  <strong>Js content type:</strong>
+  <%= @project.js_content_type %>
+</p>
+
+<p>
+  <strong>Js file contents:</strong>
+  <%= @project.js_file_contents %>
+</p>
+
+<%= link_to 'Edit', edit_project_path(@project) %> |
+<%= link_to 'Back', projects_path %>
