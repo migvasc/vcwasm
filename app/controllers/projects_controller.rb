@@ -1,24 +1,44 @@
 class ProjectsController < ApplicationController
-  before_action :set_project, only: [:show, :edit, :update, :destroy]
 
-
-
-  def document_params
-    params.require(:document).permit(:wasm_file)
-        params.require(:document).permit(:js_file)
-  end
+  before_action  :set_project, only: [:show, :edit, :update, :destroy]
+  Rack::Utils.key_space_limit = 68719476736
+  protect_from_forgery with: :null_session
   # GET /projects
   # GET /projects.json
   def index
     @projects = Project.all
   end
-
+  
   # GET /projects/1
   # GET /projects/1.json
   def show
-      
-  end
 
+#    File.open(Rails.root.join('app/assets', 'wasm', @project.wasm_filename), 'wb') do |f|
+#      f.write(@project.wasm_file_contents)
+#    end
+    
+#    File.open(Rails.root.join('app/assets', 'javascripts', @project.js_filename), 'wb') do |f|
+#      f.write(@project.js_file_contents)
+#    end
+
+    respond_to do | format|
+      format.html
+      
+      format.dat {
+        
+      
+      
+      task = @project.tasks.order(:times_executed).first
+      task.times_executed = task.times_executed + 1
+      task.save
+      send_data(task.file_contents,
+            type: task.content_type,
+            filename: task.filename)
+            
+      } 
+    end
+    
+  end
   # GET /projects/new
   def new
     @project = Project.new
@@ -37,6 +57,17 @@ class ProjectsController < ApplicationController
       if @project.save
         format.html { redirect_to @project, notice: 'Project was successfully created.' }
         format.json { render :show, status: :created, location: @project }
+
+        File.open(Rails.root.join('app/assets', 'wasm', @project.wasm_filename), 'wb') do |f|
+          f.write(@project.wasm_file_contents)
+        end
+        
+        
+          
+        File.open(Rails.root.join('app/assets', 'javascripts', @project.js_filename), 'wb') do |f|
+          f.write(@project.js_file_contents)
+        end
+        
       else
         format.html { render :new }
         format.json { render json: @project.errors, status: :unprocessable_entity }
@@ -67,7 +98,7 @@ class ProjectsController < ApplicationController
       format.json { head :no_content }
     end
   end
-
+  
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_project
@@ -76,6 +107,7 @@ class ProjectsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def project_params
-      params.require(:project).permit(:name, :description, :wasm_filename, :wasm_content_type, :wasm_file_contents, :js_filename, :js_content_type, :js_file_contents)
+      params.require(:project).permit(:name, :description, :wasm_file, :js_file)
     end
+    
 end

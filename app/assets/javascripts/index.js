@@ -1914,7 +1914,7 @@ function _emscripten_asm_const_ii(code, a0) {
 
 STATIC_BASE = Runtime.GLOBAL_BASE;
 
-STATICTOP = STATIC_BASE + 6128;
+STATICTOP = STATIC_BASE + 6256;
 /* global initializers */  __ATINIT__.push();
 
 
@@ -1923,7 +1923,7 @@ memoryInitializer = Module["wasmJSMethod"].indexOf("asmjs") >= 0 || Module["wasm
 
 
 
-var STATIC_BUMP = 6128;
+var STATIC_BUMP = 6256;
 Module["STATIC_BASE"] = STATIC_BASE;
 Module["STATIC_BUMP"] = STATIC_BUMP;
 
@@ -2583,9 +2583,9 @@ HEAP32[DYNAMICTOP_PTR>>2] = DYNAMIC_BASE;
 staticSealed = true; // seal the static portion of memory
 
 
-Module['wasmTableSize'] = 10;
+Module['wasmTableSize'] = 14;
 
-Module['wasmMaxTableSize'] = 10;
+Module['wasmMaxTableSize'] = 14;
 
 function invoke_ii(index,a1) {
   try {

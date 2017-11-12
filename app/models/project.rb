@@ -1,6 +1,6 @@
 class Project < ActiveRecord::Base
+has_many :tasks    
     
-    # app/models/document.rb
 def initialize(params = {})
   wasm_file = params.delete(:wasm_file)
   js_file = params.delete(:js_file)
@@ -10,11 +10,13 @@ def initialize(params = {})
     self.wasm_content_type = wasm_file.content_type
     self.wasm_file_contents = wasm_file.read
   end
+  
   if js_file
     self.js_filename = sanitize_filename(js_file.original_filename)
     self.js_content_type = js_file.content_type
     self.js_file_contents = js_file.read
   end
+
 end
 
 private

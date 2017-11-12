@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Filename:</strong>
+  <%= @task.filename %>
+</p>
+
+<p>
+  <strong>Content type:</strong>
+  <%= @task.content_type %>
+</p>
+
+<p>
+  <strong>File contents:</strong>
+  <%= @task.file_contents %>
+</p>
+
+<p>
+  <strong>Project:</strong>
+  <%= @task.project %>
+</p>
+
+<p>
+  <strong>Times executed:</strong>
+  <%= @task.times_executed %>
+</p>
+
+<%= link_to 'Edit', edit_task_path(@task) %> |
+<%= link_to 'Back', tasks_path %>
