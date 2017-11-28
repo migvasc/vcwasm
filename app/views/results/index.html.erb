@@ -29,33 +29,7 @@
   </tbody>
 </table>
 
-<table>
-  <thead>
-    <tr>
-      <th>ID</th>
-      <th>TASK_ID</th>
-      <th>CONT</th>
-      
-      <th colspan="2"></th>
-    </tr>
-  </thead>
 
-  <tbody>
-    <% @results.each do |result| %>
-      <tr>
-        <td><%= result.id %></td>
-        <td><%= result.task_id %></td>
-        <td><%= @h[result.id] %></td>
-        
-        <td><%= link_to 'Show', result %></td>
-        <td><%= link_to 'Edit', edit_result_path(result) %></td>
-        <td><%= link_to 'Destroy', result, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-<p><%=@strin%></p>
-<br>
 
 <%= link_to 'New Result', new_result_path %>
 

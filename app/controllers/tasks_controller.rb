@@ -11,6 +11,48 @@ class TasksController < ApplicationController
   # GET /tasks/1
   # GET /tasks/1.json
   def show
+    t = Task.find(params[:id])
+		#@results = Result.all
+		h = Hash.new  
+		r_set =  Result.where(:task_id => t.id).to_a
+		#r1_set =  Result.all.to_a
+		
+		i =0
+		j=0
+		while r_set.length > 0   do
+			
+			h[r_set[i].id] = 1
+			i=0
+			j = 1
+			
+			while j < r_set.length  do
+				
+				
+				if r_set[i].file_contents==r_set[j].file_contents
+					r_set.delete(r_set[j])
+					h[r_set[i].id] = h[r_set[i].id] + 1
+					j = j - 1	
+				end
+				
+			#	if r_set[i].file_contents==r_set[j].file_contents
+					
+			#		@strin = @strin + r_set[i].id.to_s + "EH IGUAL A " + r_set[j].id.to_s+ "  "
+			#		
+				
+			#	end
+				j= j + 1
+			end
+			
+			if r_set.length > 0 
+				r_set.delete(r_set[i])
+			end
+			
+		end
+
+		@results = Result.where(:task_id => t.id)
+		
+		@h =h    
+		
   end
 
   # GET /tasks/new
@@ -68,8 +110,10 @@ class TasksController < ApplicationController
     r = Result.new(:filename => "teste",:content_type =>"application/octet-stream", :file_contents => testy, :task_id => params[:task_id])
     
     r.save
+    t = Tasks.where(:id=>params[:task_id])
     
-    render text:  "SALVOU ESSE CARAI"
+    redirect_to  Projects.where(:id=> t.project_id)
+    
   
  end
   private

@@ -10,50 +10,7 @@ class ResultsController < ApplicationController
 		# GET /results
 	# GET /results.json
 	def index
-		@strin=""
-		#@results = Result.all
-		h = Hash.new  
-		r_set =  Result.where(:task_id => '6').to_a
-		#r1_set =  Result.all.to_a
-		
-		i =0
-		j=0
-
-		
-		while r_set.length > 0   do
-			
-			h[r_set[i].id] = 1
-			@strin = @strin + "TAH VERIFICANDO O I "+ i.to_s + " q se refere ao" + r_set[i].id.to_s
-			i=0
-			j = 1
-			
-			while j < r_set.length  do
-				
-				
-				if r_set[i].file_contents==r_set[j].file_contents
-					@strin = @strin + "VAI DELETAR O  j "+j.to_s + " q se refere ao" + r_set[j].id.to_s
-					r_set.delete(r_set[j])
-					h[r_set[i].id] = h[r_set[i].id] + 1
-					j = j - 1	
-				end
-				
-			#	if r_set[i].file_contents==r_set[j].file_contents
-					
-			#		@strin = @strin + r_set[i].id.to_s + "EH IGUAL A " + r_set[j].id.to_s+ "  "
-			#		
-				
-			#	end
-				j= j + 1
-			end
-			
-			if r_set.length > 0 
-				r_set.delete(r_set[i])
-			end
-			
-		end
-
-		@results = Result.where(:task_id => '6')
-		@h =h    
+		@results = Result.all
 	end
 
 	# GET /results/1

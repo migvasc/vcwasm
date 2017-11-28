@@ -25,5 +25,34 @@
   <%= @task.times_executed %>
 </p>
 
+<table>
+  <thead>
+    <tr>
+      <th>RESULT ID</th>
+      <th># SAME RESULTS FROM DIFFERENT EXECUTIONS</th>
+      
+      <th colspan="2"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @results.each do |result| %>
+      
+      <% if @h[result.id]   %>
+        <tr>
+          <td><%= result.id %></td>
+          <td><%= @h[result.id] %></td>
+          
+          <td><%= link_to 'Show', result %></td>
+          <td><%= link_to 'Edit', edit_result_path(result) %></td>
+          <td><%= link_to 'Destroy', result, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
+    <% end %>
+  </tbody>
+</table>
+<p><%=@strin%></p>
+<br>
+
 <%= link_to 'Edit', edit_task_path(@task) %> |
 <%= link_to 'Back', tasks_path %>

@@ -50,6 +50,8 @@
 
 Rails.application.routes.draw do
   
+  root 'welcome#index'  
+
   resources :results
   
   resources :tasks do
