@@ -9,10 +9,10 @@
       <th>Description</th>
       <th>Wasm filename</th>
       <th>Wasm content type</th>
-      <th>Wasm file contents</th>
+      
       <th>Js filename</th>
       <th>Js content type</th>
-      <th>Js file contents</th>
+      
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -24,10 +24,10 @@
         <td><%= project.description %></td>
         <td><%= project.wasm_filename %></td>
         <td><%= project.wasm_content_type %></td>
-        <td><%= project.wasm_file_contents %></td>
+        
         <td><%= project.js_filename %></td>
         <td><%= project.js_content_type %></td>
-        <td><%= project.js_file_contents %></td>
+        
         <td><%= button_to 'Download', project, method: :get %></td>
         <td><%= link_to 'Show', project %></td>
         <td><%= link_to 'Edit', edit_project_path(project) %></td>

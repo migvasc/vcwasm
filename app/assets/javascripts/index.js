@@ -1542,6 +1542,7 @@ function integrateWasmJS(Module) {
     asmjsCodeFile = Module['locateFile'](asmjsCodeFile);
   }
 
+
   // utilities
 
   var wasmPageSize = 64*1024;

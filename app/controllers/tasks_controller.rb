@@ -103,6 +103,7 @@ class TasksController < ApplicationController
       format.json { head :no_content }
     end
   end
+  
   def handle_post_request
     
    testy="#{request.body.read}"
@@ -110,9 +111,8 @@ class TasksController < ApplicationController
     r = Result.new(:filename => "teste",:content_type =>"application/octet-stream", :file_contents => testy, :task_id => params[:task_id])
     
     r.save
-    t = Tasks.where(:id=>params[:task_id])
     
-    redirect_to  Projects.where(:id=> t.project_id)
+    render text: request.headers['SALVOU']
     
   
  end

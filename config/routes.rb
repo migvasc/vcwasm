@@ -52,12 +52,12 @@ Rails.application.routes.draw do
   
   root 'welcome#index'  
 
-  resources :results
+  
   
   resources :tasks do
-    post '' => 'tasks#handle_post_request', via: :post      
+    post '', :to => 'tasks#handle_post_request'
   end
-  
+  resources :results
   resources :projects
   
   get "/pages/:page" => "pages#show"

@@ -7,7 +7,7 @@
     <tr>
       <th>Filename</th>
       <th>Content type</th>
-      <th>File contents</th>
+
       <th>Project</th>
       <th>Times executed</th>
       <th colspan="3"></th>
@@ -19,8 +19,8 @@
       <tr>
         <td><%= task.filename %></td>
         <td><%= task.content_type %></td>
-        <td><%= task.file_contents %></td>
-        <td><%= task.project %></td>
+
+        <td><%= task.project.name %></td>
         <td><%= task.times_executed %></td>
         <td><%= link_to 'Show', task %></td>
         <td><%= link_to 'Edit', edit_task_path(task) %></td>
