@@ -1,10 +1,10 @@
-##VCWASM
+## VCWASM
 
-##Volunteer Computing with WebAssembly
+## Volunteer Computing with WebAssembly
 
-#Protótipo de Sistema Distribuidor de Tarefas para plataformas de computação voluntária.
+# Protótipo de Sistema Distribuidor de Tarefas para plataformas de computação voluntária.
 
-#Principais Funcionalidades:
+# Principais Funcionalidades:
 
 • Submissão de aplicações em C/C++ compiladas para WebAssembly
 
