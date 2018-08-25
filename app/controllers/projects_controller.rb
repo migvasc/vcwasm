@@ -11,6 +11,26 @@ class ProjectsController < ApplicationController
   
   # GET /projects/1
   # GET /projects/1.json
+  def get_js
+    
+   respond_to do | format|
+      format.html
+      
+      format.dat {
+        
+      
+      
+      task = @project.tasks.order(:times_executed).first
+      task.times_executed = task.times_executed + 1
+      task.save
+      send_data(task.file_contents,
+            type: task.content_type,
+            filename: task.filename)
+            
+      } 
+    end
+  end
+  
   def show
 
 #    File.open(Rails.root.join('app/assets', 'wasm', @project.wasm_filename), 'wb') do |f|

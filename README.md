@@ -2,20 +2,23 @@
 
 # Volunteer Computing with WebAssembly
 
-## Protótipo de Sistema Distribuidor de Tarefas para plataformas de computação voluntária.
+## ProtÃ³tipo de Sistema Distribuidor de Tarefas para plataformas de computaÃ§Ã£o voluntÃ¡ria.
 
 ## Principais Funcionalidades:
 
-• Submissão de aplicações em C/C++ compiladas para WebAssembly
+ï¿½ Submissï¿½o de aplicaï¿½ï¿½es em C/C++ compiladas para WebAssembly
 
-• Arquivos relacionados a dados que deverão ser processados
+ï¿½ Arquivos relacionados a dados que deverï¿½o ser processados
 
-• Mecanismo simples para consulta e validação de resultados
+ï¿½ Mecanismo simples para consulta e validaï¿½ï¿½o de resultados
 
-Desenvolvido utilizando o Ruby on Rails e as aplicações que são submetidas ao mesmo para serem executadas devem estar compiladas em WebAssembly.
+Desenvolvido utilizando o Ruby on Rails e as aplicaï¿½ï¿½es que sï¿½o submetidas ao mesmo para serem executadas devem estar compiladas em WebAssembly.
 
-Para gerar os binários em WebAssembly, pode se utilizar o Emscripten para compilar códigos nas linguagens de programação C e C++.
+Para gerar os binï¿½rios em WebAssembly, pode se utilizar o Emscripten para compilar cï¿½digos nas linguagens de programaï¿½ï¿½o C e C++.
 
-Existe um modelo de aplicação no diretório templates/
+Existe um modelo de aplicaï¿½ï¿½o no diretï¿½rio templates/
 
-Utilizamos o PostgreSQL na versão 9.3.18 para a persistência de resultados das instâncias que são executadas.
+Utilizamos o PostgreSQL na versï¿½o 9.3.18 para a persistï¿½ncia de resultados das instï¿½ncias que sÃ£o executadas.
+
+Info sobre WebAssembly:
+https://webassembly.org/

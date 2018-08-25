@@ -16,8 +16,16 @@
 </p>
 
 <p>
+  <strong>Project:</strong>
+  
+  <%= @result.task.project.name %>
+  <%= @result.task.project.id %>
+  
+</p>
+
+<p>
   <strong>Task:</strong>
-  <%= @result.task %>
+  <%= @result.task.id %>
 </p>
 
 <%= link_to 'Edit', edit_result_path(@result) %> |
